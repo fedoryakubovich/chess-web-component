@@ -15,7 +15,7 @@ const UserContainer: React.FC<UserContainerProps> = ({ username }) => {
   const navigate = useNavigate();
 
   const handleGoToStats = useCallback(() => {
-    navigate(ROUTES.stats);
+    navigate(ROUTES.stats, { state: { username } });
   }, []);
 
   return (

@@ -1,12 +1,32 @@
 import React from "react";
-import { STATS_BREADCRUMBS } from "../constants";
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  registerables,
+} from "chart.js";
+import { Radar } from "react-chartjs-2";
 
+import { STATS_BREADCRUMBS } from "../constants";
 import Card from "../../../components/Card";
 
-const Stats: React.FC = () => {
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  ...registerables
+);
+
+const Stats: React.FC = ({ stats }) => {
   return (
     <Card breadcrumbs={STATS_BREADCRUMBS}>
-      <h1>Hello Stats</h1>
+      <Radar
+        data={stats}
+        options={{ elements: { line: { borderWidth: 3 } } }}
+      />
     </Card>
   );
 };

@@ -11,7 +11,7 @@ type UserProps = {
 
 const User: React.FC<UserProps> = ({ username }) => {
   return (
-    <MemoryRouter initialEntries={[ROUTES.user]}>
+    <MemoryRouter initialEntries={[ROUTES.home]}>
       <Routes>
         <Route path={ROUTES.home} element={<HomeContainer />} />
 
