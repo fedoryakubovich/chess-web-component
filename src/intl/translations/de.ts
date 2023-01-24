@@ -2,6 +2,10 @@ import intlKeys from "../keys";
 
 export default {
   // Common
+  [intlKeys.breadcrumbs.home]: "Startseite",
+  [intlKeys.breadcrumbs.player]: "Spieler",
+  [intlKeys.breadcrumbs.stats]: "Stats",
+
   [intlKeys.languageOptions.en]: "EN",
   [intlKeys.languageOptions.de]: "DE",
 
@@ -15,7 +19,15 @@ export default {
   [intlKeys.titleOptions.wcm]: "WCM",
 
   // Home
-  [intlKeys.home.breadcrumbs.home]: "Startseite",
   [intlKeys.home.labels.playersBy]: "Spielertitel",
   [intlKeys.home.buttons.moreInfo]: "Mehr Infos",
+
+  // Player
+  [intlKeys.player.labels.location]: "Lage",
+  [intlKeys.player.labels.joined]: "Verbindenden",
+  [intlKeys.player.labels.followers]: "Anhänger",
+  [intlKeys.player.labels.website]: "Website",
+  [intlKeys.player.labels.link]: "Verknüpfen",
+
+  [intlKeys.player.buttons.stats]: "Gehe zu Statistiken",
 };

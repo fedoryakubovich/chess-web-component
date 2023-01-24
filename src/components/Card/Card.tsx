@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useContext } from "react";
+import React, { useCallback } from "react";
 import { HiChevronRight } from "react-icons/hi";
 import HomeBreadCrumb from "./HomeBreadCrumb";
 import { IBreadcrumb } from "types";
@@ -7,7 +7,9 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import Select from "../Select";
 import { LANGUAGE_OPTIONS } from "../../constants";
-import { IntlContext } from "react-intl";
+import { LOCALES } from "../../intl/constants";
+import { useLang } from "../WCLayout";
+import { useIntl } from "react-intl";
 
 type CardProps = {
   children: React.ReactNode;
@@ -17,6 +19,12 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
   const navigate = useNavigate();
+  const { onChangeLang } = useLang();
+  const { formatMessage } = useIntl();
+
+  const handleOnChangeLanguage = useCallback((locale: string) => {
+    onChangeLang(locale as LOCALES);
+  }, []);
 
   return (
     <section className="card">
@@ -33,6 +41,7 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
                 link={breadcrumb?.link}
                 key={breadcrumb.id}
                 isHover={Boolean(breadcrumb.isHover)}
+                label={formatMessage({ id: breadcrumb.labelKey })}
               />
             ) : (
               <li key={breadcrumb.id}>
@@ -44,7 +53,7 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
                     className={itemClassName}
                     tabIndex={breadcrumb.isHover ? 1 : -1}
                   >
-                    {breadcrumb.title}
+                    {formatMessage({ id: breadcrumb.labelKey })}
                   </button>
                 </section>
               </li>
@@ -52,7 +61,7 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
           })}
         </ol>
 
-        <Select options={LANGUAGE_OPTIONS} />
+        <Select options={LANGUAGE_OPTIONS} onChange={handleOnChangeLanguage} />
       </nav>
 
       {!isLoading && <section className="content">{children}</section>}
@@ -60,4 +69,4 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);

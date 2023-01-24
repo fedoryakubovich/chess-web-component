@@ -5,9 +5,14 @@ import { useNavigate } from "react-router-dom";
 type HomeBreadCrumbProps = {
   isHover: boolean;
   link?: string;
+  label: string;
 };
 
-const HomeBreadCrumb: React.FC<HomeBreadCrumbProps> = ({ isHover, link }) => {
+const HomeBreadCrumb: React.FC<HomeBreadCrumbProps> = ({
+  isHover,
+  link,
+  label,
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -17,7 +22,7 @@ const HomeBreadCrumb: React.FC<HomeBreadCrumbProps> = ({ isHover, link }) => {
       tabIndex={isHover ? 1 : -1}
     >
       <HiHome aria-hidden="true" className="w-4 h-4 mr-2" />
-      Home
+      {label}
     </button>
   );
 };

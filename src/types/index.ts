@@ -9,7 +9,7 @@ export type Component = FC<WebComponentProps>;
 export type IBreadcrumb = {
   id: number;
   isHome?: boolean;
-  title: string;
+  labelKey: string;
   link?: string;
   isHover?: boolean;
 };

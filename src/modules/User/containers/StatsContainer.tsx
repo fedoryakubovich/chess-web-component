@@ -49,7 +49,6 @@ const StatsContainer: React.FC = () => {
 
   const { data: stats, isLoading } = useUserStats({ username: state.username });
   const opa = prepareData({ stats });
-  console.log({ opa });
 
   return !isLoading && <Stats stats={prepareData({ stats })} />;
 };

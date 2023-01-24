@@ -2,6 +2,8 @@ import React, { ChangeEvent, useId, useState } from "react";
 import classNames from "classnames";
 import { useIntl } from "react-intl";
 import { IOption } from "../types";
+import { useLang } from "./WCLayout";
+import { LOCALES } from "intl";
 
 type SelectProps = {
   labelKey?: string;
@@ -16,14 +18,15 @@ const Select: React.FC<SelectProps> = ({
   className,
   options,
 }) => {
-  const [value, setValue] = useState(options[0].key);
+  const { locale } = useLang();
+  const [value, setValue] = useState(locale);
   const { formatMessage } = useIntl();
   const selectId = useId();
 
   const wrapperClassNames = classNames("flex items-center gap-6", className);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setValue(event.target.value);
+    setValue(event.target.value as LOCALES);
     onChange?.(event.target.value);
   };
 

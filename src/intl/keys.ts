@@ -1,4 +1,10 @@
 export default {
+  breadcrumbs: {
+    home: "breadcrumbs.home",
+    player: "breadcrumbs.player",
+    stats: "breadcrumbs.stats",
+  },
+
   languageOptions: {
     en: "languageOptions.en",
     de: "languageOptions.de",
@@ -16,16 +22,21 @@ export default {
   },
 
   home: {
-    breadcrumbs: {
-      home: "home",
-    },
+    labels: { playersBy: "Players title" },
+    buttons: { moreInfo: "More Info" },
+  },
 
+  player: {
     labels: {
-      playersBy: "Players title",
+      location: "player.labels.location",
+      joined: "player.labels.joined",
+      followers: "player.labels.followers",
+      website: "player.labels.website",
+      link: "player.labels.link",
     },
 
     buttons: {
-      moreInfo: "More Info",
+      stats: "player.buttons.stats",
     },
   },
 };

@@ -4,6 +4,8 @@ import Card from "../../../components/Card";
 import { USER_BREADCRUMBS } from "../constants";
 import { IUser } from "../../../types";
 import dayjs from "dayjs";
+import { useIntl } from "react-intl";
+import { intlKeys } from "../../../intl";
 
 type UserProps = {
   user: IUser;
@@ -12,6 +14,7 @@ type UserProps = {
 };
 
 const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
+  const { formatMessage } = useIntl();
   return (
     <Card breadcrumbs={USER_BREADCRUMBS} isLoading={isLoading}>
       <>
@@ -32,7 +35,9 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
         <section className="w-full">
           <section className="w-full pt-4">
             <section className="my-2 w-full flex justify-between">
-              <span className="text-gray-900 dark:text-white">Location</span>
+              <span className="text-gray-900 dark:text-white">
+                {formatMessage({ id: intlKeys.player.labels.location })}
+              </span>
               <span className="text-gray-500 dark:text-gray-400">
                 {user?.location}
               </span>
@@ -41,7 +46,9 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
 
           <section className="w-full pt-4">
             <section className="my-2 w-full flex justify-between">
-              <span className="text-gray-900 dark:text-white">Joined</span>
+              <span className="text-gray-900 dark:text-white">
+                {formatMessage({ id: intlKeys.player.labels.joined })}
+              </span>
               <span className="text-gray-500 dark:text-gray-400">
                 {dayjs(user?.joined * 1000).format("MMMM D, YYYY")}
               </span>
@@ -50,7 +57,9 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
 
           <section className="w-full pt-4">
             <section className="my-2 w-full flex justify-between">
-              <span className="text-gray-900 dark:text-white">Followers</span>
+              <span className="text-gray-900 dark:text-white">
+                {formatMessage({ id: intlKeys.player.labels.followers })}
+              </span>
               <span className="text-gray-500 dark:text-gray-400">
                 {new Intl.NumberFormat("en-GB", {
                   notation: "compact",
@@ -62,9 +71,13 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
 
           <section className="w-full pt-4">
             <section className="my-2 w-full flex justify-between">
-              <span className="text-gray-900 dark:text-white">Website</span>
+              <span className="text-gray-900 dark:text-white">
+                {formatMessage({ id: intlKeys.player.labels.website })}
+              </span>
               <span className="text-gray-500 dark:text-gray-400">
-                <a href={user?.url}>Link</a>
+                <a href={user?.url}>
+                  {formatMessage({ id: intlKeys.player.labels.link })}
+                </a>
               </span>
             </section>
           </section>

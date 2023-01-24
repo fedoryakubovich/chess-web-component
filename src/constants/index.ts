@@ -1,8 +1,7 @@
+import { LOCALES } from "../intl/constants";
 import { intlKeys } from "../intl";
 
 export const OBSERVED_ATTRS = ["username"];
-
-export const DEFAULT_LOCALE = "en";
 
 const TITLE = {
   GM: "GM",
@@ -26,9 +25,7 @@ export const TITLE_OPTIONS = [
   { key: TITLE.WCM, labelKey: intlKeys.titleOptions.wcm },
 ];
 
-const LANGUAGE = { EN: "EN", DE: "DE" };
-
 export const LANGUAGE_OPTIONS = [
-  { key: LANGUAGE.EN, labelKey: intlKeys.languageOptions.en },
-  { key: LANGUAGE.DE, labelKey: intlKeys.languageOptions.de },
+  { key: LOCALES.en, labelKey: intlKeys.languageOptions.en },
+  { key: LOCALES.de, labelKey: intlKeys.languageOptions.de },
 ];
