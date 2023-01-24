@@ -2,6 +2,8 @@ import intlKeys from "../keys";
 
 export default {
   // Common
+  [intlKeys.na]: "N/A",
+
   [intlKeys.breadcrumbs.home]: "Home",
   [intlKeys.breadcrumbs.player]: "Player",
   [intlKeys.breadcrumbs.stats]: "Stats",

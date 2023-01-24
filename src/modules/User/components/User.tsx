@@ -15,6 +15,8 @@ type UserProps = {
 
 const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
   const { formatMessage } = useIntl();
+  const na = formatMessage({ id: intlKeys.na });
+
   return (
     <Card breadcrumbs={USER_BREADCRUMBS} isLoading={isLoading}>
       <>
@@ -39,7 +41,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
                 {formatMessage({ id: intlKeys.player.labels.location })}
               </span>
               <span className="text-gray-500 dark:text-gray-400">
-                {user?.location}
+                {user?.location ?? na}
               </span>
             </section>
           </section>
@@ -50,7 +52,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
                 {formatMessage({ id: intlKeys.player.labels.joined })}
               </span>
               <span className="text-gray-500 dark:text-gray-400">
-                {dayjs(user?.joined * 1000).format("MMMM D, YYYY")}
+                {dayjs(user?.joined * 1000).format("MMMM D, YYYY") ?? na}
               </span>
             </section>
           </section>
@@ -58,7 +60,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
           <section className="w-full pt-4">
             <section className="my-2 w-full flex justify-between">
               <span className="text-gray-900 dark:text-white">
-                {formatMessage({ id: intlKeys.player.labels.followers })}
+                {formatMessage({ id: intlKeys.player.labels.followers }) ?? na}
               </span>
               <span className="text-gray-500 dark:text-gray-400">
                 {new Intl.NumberFormat("en-GB", {
@@ -88,7 +90,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={handleGoToStats}
             >
-              Go To Stats
+              {formatMessage({ id: intlKeys.player.buttons.stats })}
             </button>
           </section>
         </section>

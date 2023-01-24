@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { IUser } from "types";
 
 import User from "../components/User";
@@ -11,7 +11,8 @@ type UserContainerProps = {
 };
 
 const UserContainer: React.FC<UserContainerProps> = ({ username }) => {
-  const { data: user, isLoading } = useUser({ username });
+  const { state } = useLocation();
+  const { data: user, isLoading } = useUser({ username: state.username });
   const navigate = useNavigate();
 
   const handleGoToStats = useCallback(() => {

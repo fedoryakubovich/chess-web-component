@@ -1,4 +1,6 @@
 export default {
+  na: "na",
+
   breadcrumbs: {
     home: "breadcrumbs.home",
     player: "breadcrumbs.player",
