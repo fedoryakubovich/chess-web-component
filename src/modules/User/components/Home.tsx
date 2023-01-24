@@ -7,6 +7,7 @@ import { BiLoaderAlt } from "react-icons/bi";
 import Select from "../../../components/Select";
 import { intlKeys } from "../../../intl";
 import { useIntl } from "react-intl";
+import { TITLE_OPTIONS } from "../../../constants";
 
 type HomeProps = {
   users: any;
@@ -23,7 +24,11 @@ const Home: React.FC<HomeProps> = ({
 
   return (
     <Card breadcrumbs={HOME_BREADCRUMBS}>
-      <Select labelKey={intlKeys.home.labels.playersBy} />
+      <Select
+        labelKey={intlKeys.home.labels.playersBy}
+        className="w-full"
+        options={TITLE_OPTIONS}
+      />
 
       <div className="w-full mt-4">
         <InfiniteScroll

@@ -15,7 +15,7 @@ export default {
   [intlKeys.titleOptions.wcm]: "WCM",
 
   // Home
-  [intlKeys.home.breadcrumbs.home]: "Home",
-  [intlKeys.home.labels.playersBy]: "Players title",
-  [intlKeys.home.buttons.moreInfo]: "More Info",
+  [intlKeys.home.breadcrumbs.home]: "Startseite",
+  [intlKeys.home.labels.playersBy]: "Spielertitel",
+  [intlKeys.home.buttons.moreInfo]: "Mehr Infos",
 };

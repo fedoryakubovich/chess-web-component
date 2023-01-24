@@ -4,7 +4,7 @@ export const OBSERVED_ATTRS = ["username"];
 
 export const DEFAULT_LOCALE = "en";
 
-const TITLE_OPTIONS = {
+const TITLE = {
   GM: "GM",
   WGM: "WGM",
   IM: "IM",
@@ -15,13 +15,20 @@ const TITLE_OPTIONS = {
   WCM: "WCM",
 };
 
-export const TITLES = [
-  { key: TITLE_OPTIONS.GM, labelKey: intlKeys.titleOptions.gm },
-  { key: TITLE_OPTIONS.WGM, labelKey: intlKeys.titleOptions.wgm },
-  { key: TITLE_OPTIONS.IM, labelKey: intlKeys.titleOptions.im },
-  { key: TITLE_OPTIONS.WIM, labelKey: intlKeys.titleOptions.wim },
-  { key: TITLE_OPTIONS.FM, labelKey: intlKeys.titleOptions.fm },
-  { key: TITLE_OPTIONS.WFM, labelKey: intlKeys.titleOptions.wfm },
-  { key: TITLE_OPTIONS.CM, labelKey: intlKeys.titleOptions.cm },
-  { key: TITLE_OPTIONS.WCM, labelKey: intlKeys.titleOptions.wcm },
+export const TITLE_OPTIONS = [
+  { key: TITLE.GM, labelKey: intlKeys.titleOptions.gm },
+  { key: TITLE.WGM, labelKey: intlKeys.titleOptions.wgm },
+  { key: TITLE.IM, labelKey: intlKeys.titleOptions.im },
+  { key: TITLE.WIM, labelKey: intlKeys.titleOptions.wim },
+  { key: TITLE.FM, labelKey: intlKeys.titleOptions.fm },
+  { key: TITLE.WFM, labelKey: intlKeys.titleOptions.wfm },
+  { key: TITLE.CM, labelKey: intlKeys.titleOptions.cm },
+  { key: TITLE.WCM, labelKey: intlKeys.titleOptions.wcm },
+];
+
+const LANGUAGE = { EN: "EN", DE: "DE" };
+
+export const LANGUAGE_OPTIONS = [
+  { key: LANGUAGE.EN, labelKey: intlKeys.languageOptions.en },
+  { key: LANGUAGE.DE, labelKey: intlKeys.languageOptions.de },
 ];

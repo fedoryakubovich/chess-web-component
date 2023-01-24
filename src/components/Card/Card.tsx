@@ -1,10 +1,13 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useContext } from "react";
 import { HiChevronRight } from "react-icons/hi";
 import HomeBreadCrumb from "./HomeBreadCrumb";
 import { IBreadcrumb } from "types";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
+import Select from "../Select";
+import { LANGUAGE_OPTIONS } from "../../constants";
+import { IntlContext } from "react-intl";
 
 type CardProps = {
   children: React.ReactNode;
@@ -48,6 +51,8 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
             );
           })}
         </ol>
+
+        <Select options={LANGUAGE_OPTIONS} />
       </nav>
 
       {!isLoading && <section className="content">{children}</section>}

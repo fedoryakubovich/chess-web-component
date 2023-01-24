@@ -31,3 +31,8 @@ export type IUser = {
   is_streamer: boolean;
   verified: boolean;
 };
+
+export type IOption = {
+  key: string;
+  labelKey: string;
+};

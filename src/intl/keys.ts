@@ -1,4 +1,9 @@
 export default {
+  languageOptions: {
+    en: "languageOptions.en",
+    de: "languageOptions.de",
+  },
+
   titleOptions: {
     gm: "titleOptions.gm",
     wgm: "titleOptions.wgm",
@@ -11,6 +16,10 @@ export default {
   },
 
   home: {
+    breadcrumbs: {
+      home: "home",
+    },
+
     labels: {
       playersBy: "Players title",
     },

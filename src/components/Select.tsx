@@ -1,24 +1,34 @@
 import React, { ChangeEvent, useId, useState } from "react";
+import classNames from "classnames";
 import { useIntl } from "react-intl";
-import { TITLES } from "../constants";
+import { IOption } from "../types";
 
 type SelectProps = {
   labelKey?: string;
-  onChange?: () => void;
+  onChange?: (option: string) => void;
+  className?: string;
+  options: IOption[];
 };
 
-const Select: React.FC<SelectProps> = ({ labelKey, onChange }) => {
-  const [value, setValue] = useState(TITLES[0].key);
+const Select: React.FC<SelectProps> = ({
+  labelKey,
+  onChange,
+  className,
+  options,
+}) => {
+  const [value, setValue] = useState(options[0].key);
   const { formatMessage } = useIntl();
   const selectId = useId();
 
+  const wrapperClassNames = classNames("flex items-center gap-6", className);
+
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setValue(event.target.value);
-    onChange?.();
+    onChange?.(event.target.value);
   };
 
   return (
-    <section className="w-full flex items-center gap-6">
+    <section className={wrapperClassNames}>
       {labelKey && (
         <label
           htmlFor={selectId}
@@ -34,7 +44,7 @@ const Select: React.FC<SelectProps> = ({ labelKey, onChange }) => {
         onChange={handleChange}
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        {TITLES.map((title) => {
+        {options.map((title) => {
           return (
             <option key={title.key} value={title.key}>
               {formatMessage({ id: title.labelKey })}
@@ -46,4 +56,4 @@ const Select: React.FC<SelectProps> = ({ labelKey, onChange }) => {
   );
 };
 
-export default Select;
+export default React.memo(Select);
