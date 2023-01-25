@@ -9,7 +9,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "lint": "eslint \"src/**/*.tsx\" --fix --max-warnings=0"
+    "lint": "eslint \"src/**/*.tsx\" --fix --max-warnings=0",
+    "prepare": "husky install"
   },
   "@parcel/transformer-css": {
     "drafts": {
@@ -39,6 +40,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
     "parcel": "^2.8.3",
     "prettier": "^2.8.3",
     "process": "^0.11.10",
