@@ -1,9 +1,11 @@
-import React, { ChangeEvent, useId, useState } from "react";
-import classNames from "classnames";
-import { useIntl } from "react-intl";
-import { IOption } from "../types";
-import { useLang } from "./WCLayout";
-import { LOCALES } from "intl";
+import React, { ChangeEvent, useId, useState } from 'react';
+
+import classNames from 'classnames';
+import { LOCALES } from 'intl';
+import { useIntl } from 'react-intl';
+
+import { useLang } from './WCLayout';
+import { IOption } from '../types';
 
 type SelectProps = {
   labelKey?: string;
@@ -12,18 +14,13 @@ type SelectProps = {
   options: IOption[];
 };
 
-const Select: React.FC<SelectProps> = ({
-  labelKey,
-  onChange,
-  className,
-  options,
-}) => {
+const Select: React.FC<SelectProps> = ({ labelKey, onChange, className, options }) => {
   const { locale } = useLang();
   const [value, setValue] = useState(locale);
   const { formatMessage } = useIntl();
   const selectId = useId();
 
-  const wrapperClassNames = classNames("flex items-center gap-6", className);
+  const wrapperClassNames = classNames('flex items-center gap-6', className);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setValue(event.target.value as LOCALES);
@@ -33,10 +30,7 @@ const Select: React.FC<SelectProps> = ({
   return (
     <section className={wrapperClassNames}>
       {labelKey && (
-        <label
-          htmlFor={selectId}
-          className="text-lg font-medium text-gray-900 dark:text-white"
-        >
+        <label htmlFor={selectId} className="text-lg font-medium text-gray-900 dark:text-white">
           {formatMessage({ id: labelKey })}
         </label>
       )}

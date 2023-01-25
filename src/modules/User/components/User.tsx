@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import Card from "../../../components/Card";
-import { USER_BREADCRUMBS } from "../constants";
-import { IUser } from "../../../types";
-import dayjs from "dayjs";
-import { useIntl } from "react-intl";
-import { intlKeys } from "../../../intl";
+import dayjs from 'dayjs';
+import { useIntl } from 'react-intl';
+
+import Card from '../../../components/Card';
+import { intlKeys } from '../../../intl';
+import { IUser } from '../../../types';
+import { USER_BREADCRUMBS } from '../constants';
 
 type UserProps = {
   user: IUser;
@@ -23,16 +24,12 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
         <img
           className="w-24 h-24 mb-3 rounded-full shadow-lg"
           src={user?.avatar}
-          alt={`${user?.name} image`}
+          alt={`${user?.name}`}
         />
 
-        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-          {user?.name}
-        </h5>
+        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{user?.name}</h5>
 
-        <span className="text-sm text-gray-500 dark:text-gray-400">
-          {user?.title}
-        </span>
+        <span className="text-sm text-gray-500 dark:text-gray-400">{user?.title}</span>
 
         <section className="w-full">
           <section className="w-full pt-4">
@@ -40,9 +37,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
               <span className="text-gray-900 dark:text-white">
                 {formatMessage({ id: intlKeys.player.labels.location })}
               </span>
-              <span className="text-gray-500 dark:text-gray-400">
-                {user?.location ?? na}
-              </span>
+              <span className="text-gray-500 dark:text-gray-400">{user?.location ?? na}</span>
             </section>
           </section>
 
@@ -52,7 +47,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
                 {formatMessage({ id: intlKeys.player.labels.joined })}
               </span>
               <span className="text-gray-500 dark:text-gray-400">
-                {dayjs(user?.joined * 1000).format("MMMM D, YYYY") ?? na}
+                {dayjs(user?.joined * 1000).format('MMMM D, YYYY') ?? na}
               </span>
             </section>
           </section>
@@ -63,9 +58,9 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
                 {formatMessage({ id: intlKeys.player.labels.followers }) ?? na}
               </span>
               <span className="text-gray-500 dark:text-gray-400">
-                {new Intl.NumberFormat("en-GB", {
-                  notation: "compact",
-                  compactDisplay: "short",
+                {new Intl.NumberFormat('en-GB', {
+                  notation: 'compact',
+                  compactDisplay: 'short',
                 }).format(user?.followers)}
               </span>
             </section>
@@ -77,9 +72,7 @@ const User: React.FC<UserProps> = ({ user, isLoading, handleGoToStats }) => {
                 {formatMessage({ id: intlKeys.player.labels.website })}
               </span>
               <span className="text-gray-500 dark:text-gray-400">
-                <a href={user?.url}>
-                  {formatMessage({ id: intlKeys.player.labels.link })}
-                </a>
+                <a href={user?.url}>{formatMessage({ id: intlKeys.player.labels.link })}</a>
               </span>
             </section>
           </section>

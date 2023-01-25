@@ -1,15 +1,17 @@
-import classNames from "classnames";
-import React, { useCallback } from "react";
-import { HiChevronRight } from "react-icons/hi";
-import HomeBreadCrumb from "./HomeBreadCrumb";
-import { IBreadcrumb } from "types";
-import { useNavigate } from "react-router-dom";
-import Loader from "../../components/Loader/Loader";
-import Select from "../Select";
-import { LANGUAGE_OPTIONS } from "../../constants";
-import { LOCALES } from "../../intl/constants";
-import { useLang } from "../WCLayout";
-import { useIntl } from "react-intl";
+import React, { useCallback } from 'react';
+
+import classNames from 'classnames';
+import { HiChevronRight } from 'react-icons/hi';
+import { useIntl } from 'react-intl';
+import { useNavigate } from 'react-router-dom';
+import { IBreadcrumb } from 'types';
+
+import HomeBreadCrumb from './HomeBreadCrumb';
+import Loader from '../../components/Loader/Loader';
+import { LANGUAGE_OPTIONS } from '../../constants';
+import { LOCALES } from '../../intl/constants';
+import Select from '../Select';
+import { useLang } from '../WCLayout';
 
 type CardProps = {
   children: React.ReactNode;
@@ -22,9 +24,12 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
   const { onChangeLang } = useLang();
   const { formatMessage } = useIntl();
 
-  const handleOnChangeLanguage = useCallback((locale: string) => {
-    onChangeLang(locale as LOCALES);
-  }, []);
+  const handleOnChangeLanguage = useCallback(
+    (locale: string) => {
+      onChangeLang(locale as LOCALES);
+    },
+    [onChangeLang]
+  );
 
   return (
     <section className="card">
@@ -32,7 +37,7 @@ const Card: React.FC<CardProps> = ({ children, breadcrumbs, isLoading }) => {
       <nav className="cardNav" aria-label="Breadcrumb">
         <ol className="list">
           {breadcrumbs.map((breadcrumb) => {
-            const itemClassName = classNames("navItem", {
+            const itemClassName = classNames('navItem', {
               hover: breadcrumb.isHover,
             });
 

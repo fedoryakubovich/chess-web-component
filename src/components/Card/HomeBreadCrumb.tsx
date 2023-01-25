@@ -1,6 +1,7 @@
-import React from "react";
-import { HiHome } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+
+import { HiHome } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
 
 type HomeBreadCrumbProps = {
   isHover: boolean;
@@ -8,11 +9,7 @@ type HomeBreadCrumbProps = {
   label: string;
 };
 
-const HomeBreadCrumb: React.FC<HomeBreadCrumbProps> = ({
-  isHover,
-  link,
-  label,
-}) => {
+const HomeBreadCrumb: React.FC<HomeBreadCrumbProps> = ({ isHover, link, label }) => {
   const navigate = useNavigate();
 
   return (

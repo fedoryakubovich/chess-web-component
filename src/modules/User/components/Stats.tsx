@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -6,21 +7,15 @@ import {
   LineElement,
   Filler,
   registerables,
-} from "chart.js";
-import { Radar } from "react-chartjs-2";
-import colors from "tailwindcss/colors";
+} from 'chart.js';
+import { Radar } from 'react-chartjs-2';
+import colors from 'tailwindcss/colors';
 
-import { STATS_BREADCRUMBS } from "../constants";
-import Card from "../../../components/Card";
-import { isDark } from "../../../utils";
+import Card from '../../../components/Card';
+import { isDark } from '../../../utils';
+import { STATS_BREADCRUMBS } from '../constants';
 
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  ...registerables
-);
+ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, ...registerables);
 
 const Stats: React.FC = ({ stats }) => {
   const color = isDark ? colors.gray[400] : colors.gray[500];

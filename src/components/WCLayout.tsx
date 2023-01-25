@@ -1,15 +1,11 @@
-import dayjs from "dayjs";
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
-import { IntlProvider } from "react-intl";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { DEFAULT_LOCALE, LANG_MESSAGES, LOCALE, LOCALES } from "../intl";
-import("dayjs/locale/de");
+import React, { createContext, useCallback, useContext, useState } from 'react';
+
+import dayjs from 'dayjs';
+import { IntlProvider } from 'react-intl';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { DEFAULT_LOCALE, LANG_MESSAGES, LOCALE, LOCALES } from '../intl';
+import('dayjs/locale/de');
 
 type WCLayoutProps = {
   children: React.ReactNode;
@@ -33,13 +29,9 @@ const WCLayout: React.FC<WCLayoutProps> = ({ children }) => {
     dayjs.locale(locale);
   }, []);
 
-  const onChange = useMemo(() => onChangeLang, []);
-
   return (
     <QueryClientProvider client={queryClient}>
-      <LangContext.Provider
-        value={{ onChangeLang: onChange, locale: state.locale }}
-      >
+      <LangContext.Provider value={{ onChangeLang, locale: state.locale }}>
         <IntlProvider
           locale={state.locale}
           messages={state.messages}

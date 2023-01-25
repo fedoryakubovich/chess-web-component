@@ -1,13 +1,16 @@
-import React from "react";
-import { HOME_BREADCRUMBS } from "../constants";
-import Card from "../../../components/Card";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { HiUser } from "react-icons/hi";
-import { BiLoaderAlt } from "react-icons/bi";
-import Select from "../../../components/Select";
-import { intlKeys } from "../../../intl";
-import { useIntl } from "react-intl";
-import { TITLE_OPTIONS } from "../../../constants";
+import React from 'react';
+
+import { TITLE_OPTIONS } from 'constants';
+import { intlKeys } from 'intl';
+import { BiLoaderAlt } from 'react-icons/bi';
+import { HiUser } from 'react-icons/hi';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useIntl } from 'react-intl';
+
+import Card from 'components/Card';
+import Select from 'components/Select';
+
+import { HOME_BREADCRUMBS } from '../constants';
 
 type HomeProps = {
   users: any;
@@ -15,11 +18,7 @@ type HomeProps = {
   handleGoToInfo: () => void;
 };
 
-const Home: React.FC<HomeProps> = ({
-  users,
-  handleLoadMore,
-  handleGoToInfo,
-}) => {
+const Home: React.FC<HomeProps> = ({ users, handleLoadMore, handleGoToInfo }) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -65,7 +64,7 @@ const Home: React.FC<HomeProps> = ({
 
                   <section className="ml-2">
                     <section className="text-sm font-medium text-gray-900 dark:text-white">
-                      {user?.data?.name ?? "N/A"}
+                      {user?.data?.name ?? 'N/A'}
                     </section>
                     <section className="text-xs text-gray-500 dark:text-gray-400 text-left">
                       <a href={user?.data?.url} target="_blank">

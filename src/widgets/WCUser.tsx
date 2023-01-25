@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { WebComponentProps } from "../types";
-import WCWrapper from "../WCWrapper";
-import UserContainer from "../modules/User";
-import WCLayout from "../components/WCLayout";
+import WCLayout from '../components/WCLayout';
+import UserContainer from '../modules/User';
+import { WebComponentProps } from '../types';
+import WCWrapper from '../WCWrapper';
 
 const WCUser: React.FC<WebComponentProps> = ({ username }) => {
   return (
@@ -13,4 +13,4 @@ const WCUser: React.FC<WebComponentProps> = ({ username }) => {
   );
 };
 
-customElements.define("chess-widget", WCWrapper(WCUser));
+customElements.define('chess-widget', WCWrapper(WCUser));

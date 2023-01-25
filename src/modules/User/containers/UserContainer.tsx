@@ -1,10 +1,11 @@
-import React, { useCallback } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { IUser } from "types";
+import React, { useCallback } from 'react';
 
-import User from "../components/User";
-import { ROUTES } from "../constants";
-import { useUser } from "../hooks";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { IUser } from 'types';
+
+import User from '../components/User';
+import { ROUTES } from '../constants';
+import { useUser } from '../hooks';
 
 type UserContainerProps = {
   username: string;
@@ -17,15 +18,9 @@ const UserContainer: React.FC<UserContainerProps> = ({ username }) => {
 
   const handleGoToStats = useCallback(() => {
     navigate(ROUTES.stats, { state: { username } });
-  }, []);
+  }, [navigate, username]);
 
-  return (
-    <User
-      user={user as IUser}
-      isLoading={isLoading}
-      handleGoToStats={handleGoToStats}
-    />
-  );
+  return <User user={user as IUser} isLoading={isLoading} handleGoToStats={handleGoToStats} />;
 };
 
 export default UserContainer;
