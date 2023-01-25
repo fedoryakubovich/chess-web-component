@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import colors from "tailwindcss/colors";
 
 import Stats from "../components/Stats";
 import { useUserStats } from "../hooks";
