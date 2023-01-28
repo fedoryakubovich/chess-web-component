@@ -2,12 +2,12 @@ import React from 'react';
 
 import { TITLE_OPTIONS } from 'constants';
 import { intlKeys } from 'intl';
-import { BiLoaderAlt } from 'react-icons/bi';
 import { HiUser } from 'react-icons/hi';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useIntl } from 'react-intl';
 
 import Card from 'components/Card';
+import Loader from 'components/Loader/Loader';
 import Select from 'components/Select';
 
 import { HOME_BREADCRUMBS } from '../constants';
@@ -35,13 +35,7 @@ const Home: React.FC<HomeProps> = ({ users, handleLoadMore, handleGoToInfo }) =>
           next={handleLoadMore}
           hasMore={true}
           height={380}
-          loader={
-            <div role="status" className="w-full flex justify-center">
-              <BiLoaderAlt className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" />
-
-              <span className="sr-only">Loading...</span>
-            </div>
-          }
+          loader={<Loader />}
         >
           {users.map((user, index) => {
             return (
